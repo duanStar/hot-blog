@@ -27,6 +27,32 @@ $uni-info: #8f939c;
 $uni-info-disable:mix(#fff,$uni-info,50%);
 $uni-info-light: mix(#fff,$uni-info,80%);
 
+// 文字颜色
+$uni-text-color-hot: #f94d2a;
+$uni-text-color-title: #000;
+$uni-text-color: #333;
+$uni-text-color-grey: #999;
+
+// 文字尺寸
+$uni-font-size-sm: 12px;
+$uni-font-size-base: 14px;
+$uni-font-size-lg: 16px;
+
+// 图片尺寸
+$uni-img-size-sm: 20px;
+$uni-img-size-base: 26px;
+$uni-img-size-lg: 40px;
+
+// 水平间距
+$uni-spacing-row-sm: 5px;
+$uni-spacing-row-base: 10px;
+$uni-spacing-row-lg: 15px;
+
+// 垂直间距
+$uni-spacing-col-sm: 4px;
+$uni-spacing-col-base: 8px;
+$uni-spacing-col-lg: 12px;
+
 // 中性色
 // 中性色用于文本、背景和边框颜色。通过运用不同的中性色，来表现层次结构。
 $uni-main-color: #3a3a3a; 			// 主要文字
@@ -47,6 +73,9 @@ $uni-transparent: rgba($color: #000000, $alpha: 0);
 
 // 背景色
 $uni-bg-color: #f7f7f7;
+$uni-bg-color-grey: #f8f8f8;
+
+$uni-border-color: #c9c9c9;
 
 /* 水平间距 */
 $uni-spacing-sm: 8px;

@@ -18,7 +18,7 @@
 	@import '@/uni_modules/uni-scss';
 	// 设置整个项目的背景色
 	page {
-		background-color: #f5f5f5;
+		background-color: $uni-white;
 	}
 
 	/* #endif */

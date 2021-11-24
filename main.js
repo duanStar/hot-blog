@@ -2,6 +2,13 @@
 // #ifndef VUE3
 import Vue from 'vue'
 import App from './App'
+import './styles/global.scss'
+
+import * as filters from './filters/index.js'
+
+Object.keys(filters).forEach(key => {
+	Vue.filter(key, filters[key]);
+});
 
 Vue.config.productionTip = false
 
