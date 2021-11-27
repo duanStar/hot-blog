@@ -1,7 +1,7 @@
 <template>
 	<view class="hot-container">
 		<image class="logo" src="@/static/images/logo.png" mode="aspectFit"></image>
-		<view class="search-box">
+		<view class="search-box" @click="onToSearch">
 			<my-search placeholderText="uni-app 入门"></my-search>
 		</view>
 		<view class="tab-box">
@@ -87,6 +87,12 @@
 					return;
 				}
 				this.currentSwiperHeight = this.swiperHeightData[this.currentIndex];
+			},
+			/*跳转search页面*/
+			onToSearch() {
+				uni.navigateTo({
+					url: '/subpkg/pages/search-blog/search-blog'
+				});
 			}
 		},
 		created() {

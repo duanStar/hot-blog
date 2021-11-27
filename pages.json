@@ -2,20 +2,17 @@
 	"pages": [{
 		"path": "pages/hot/hot",
 		"style": {
-			"navigationBarTitleText": "热搜",
-			"enablePullDownRefresh": false
+			"navigationBarTitleText": "热搜"
 		}
 	}, {
 		"path": "pages/hot-video/hot-video",
 		"style": {
-			"navigationBarTitleText": "",
-			"enablePullDownRefresh": false
+			"navigationBarTitleText": "热播"
 		}
 	}, {
 		"path": "pages/my/my",
 		"style": {
-			"navigationBarTitleText": "",
-			"enablePullDownRefresh": false
+			"navigationBarTitleText": "我的"
 		}
 	}
 	],
@@ -50,5 +47,19 @@
 				"selectedIconPath":"static/tab-icons/my-active.png"
 			}
 		]
-	}
+	},
+	"subPackages": [
+		{
+			"root":"subpkg",
+			"name": "sub-1",
+			"pages": [
+				{
+					"path":"pages/search-blog/search-blog",
+					"style": {
+						"navigationBarTitleText":"文章搜索"
+					}
+				}
+			]
+		}
+	]
 }

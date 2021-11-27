@@ -1,0 +1,23 @@
+{
+  "name": "hot-blog",
+  "version": "1.0.0",
+  "description": "1. 该项目应运行在 `HBuilder X` 之中\r 2. 运行该项目前，请先执行 `npm install` 下来依赖包",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duanStar/hot-blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/duanStar/hot-blog/issues"
+  },
+  "homepage": "https://github.com/duanStar/hot-blog#readme",
+  "devDependencies": {
+    "dayjs": "^1.10.4"
+  }
+}
