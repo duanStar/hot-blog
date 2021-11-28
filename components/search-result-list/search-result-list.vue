@@ -3,7 +3,7 @@
 		<empty-data v-if="isEmpty"></empty-data>
 		<mescroll-body ref="mescrollRef" @init="mescrollInit" @down="downCallback" @up="upCallback" v-else>
 			<block v-for="(item, index) in resultList" :key="index">
-				<view class="search-result-item-box">
+				<view class="search-result-item-box" @click="onItemClick(item)">
 					<search-result-item-theme-1 :data="item" v-if="!item.pic_list || item.pic_list.length === 0"></search-result-item-theme-1>
 					<search-result-item-theme-2 :data="item" v-else-if="item.pic_list.length === 1"></search-result-item-theme-2>
 					<search-result-item-theme-3 :data="item" v-else></search-result-item-theme-3>
@@ -60,22 +60,28 @@
 				this.isInit = false;
 				this.mescroll.endSuccess(this.pageSize, true); // 关闭动画
 			},
+			/*下拉刷新*/
 			async downCallback() {
 				if(this.isInit) return;
 				this.page = 1;
 				await this.loadSearchResult();
 				this.mescroll.endSuccess(this.pageSize, true); // 关闭动画
 			},
+			/*上拉加载*/
 			async upCallback() {
 				if(this.isInit) return;
 				this.page += 1;
 				await this.loadSearchResult();
 				this.mescroll.endSuccess(this.pageSize, true); // 关闭动画
+			},
+			onItemClick(item) {
+				uni.navigateTo({
+					url: `/subpkg/pages/blog-detail/blog-detail?author=${item.author}&articleId=${item.id}`
+				})
 			}
 		},
 		mounted() {
 			this.mescroll = this.$refs.mescrollRef.mescroll;
-			console.log(this.mescroll)
 		}
 	}
 </script>

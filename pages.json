@@ -58,8 +58,15 @@
 					"style": {
 						"navigationBarTitleText":"文章搜索"
 					}
-				}
-			]
+				},
+			  {
+          "path" : "pages/blog-detail/blog-detail",
+          "style" :                                                                                    
+          {
+            "navigationBarTitleText": "文章详情"
+          }    
+        }
+      ]
 		}
 	]
 }

@@ -21,6 +21,9 @@ function request({ path, data, method }) {
 			},
 			fail(err) {
 				reject(err);
+			},
+			complete() {
+				uni.hideLoading();
 			}
 		});
 	});

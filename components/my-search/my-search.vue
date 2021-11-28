@@ -21,7 +21,9 @@
 			}"
 		>
 			<image class="icon" :src="config.icon" mode="aspectFit"></image>
-			<text class="placeholder">{{placeholderText}}</text>
+			<text class="placeholder" :style="{
+				color: config.textColor
+			}">{{placeholderText}}</text>
 		</view>
 	</view>
 </template>
@@ -78,6 +80,17 @@
 			},
 			onInput(val) {
 				this.$emit('input', val);
+			}
+		},
+		watch: {
+			config: {
+				handler(val) {
+					return {
+						...this.config,
+						...val
+					}
+				},
+				immediate: true
 			}
 		}
 	}

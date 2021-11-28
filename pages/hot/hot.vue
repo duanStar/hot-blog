@@ -14,7 +14,7 @@
 				<view class="list-box">
 					<uni-load-more status="loading" v-if="isLoading"></uni-load-more>
 					<block v-else>
-						<hot-list-item :class="'hot-list-item-' + tabIndex" v-for="(item, index) in listData[tabIndex]" :key="index" :data="item" :ranking="index + 1"></hot-list-item>
+						<hot-list-item @click="onItemClick(item)" :class="'hot-list-item-' + tabIndex" v-for="(item, index) in listData[tabIndex]" :key="index" :data="item" :ranking="index + 1"></hot-list-item>
 					</block>
 				</view>
 			</swiper-item>
@@ -93,6 +93,11 @@
 				uni.navigateTo({
 					url: '/subpkg/pages/search-blog/search-blog'
 				});
+			},
+			onItemClick(item) {
+				uni.navigateTo({
+					url: `/subpkg/pages/blog-detail/blog-detail?author=${item.user_name}&articleId=${item.id}`
+				})
 			}
 		},
 		created() {
