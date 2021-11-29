@@ -79,6 +79,9 @@
 				if (this.isShowAllComment && !this.mescroll) {
 					this.mescroll = this.$refs.mescrollRef.mescroll;
 				}
+			},
+			addCommentList(data) {
+				this.commentList.unshift(data);
 			}
 		}
 	}

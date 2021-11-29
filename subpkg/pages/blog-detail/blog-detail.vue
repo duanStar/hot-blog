@@ -16,14 +16,17 @@
 						</view>
 					</view>
 					<view class="detail-right">
-						<button class="follow" size="mini">关注</button>
+						<button class="follow" size="mini" @click="onFollowClick" :loading="isFollowLoading" :type="articleData.isFollow ? 'primary' : 'default'">{{articleData.isFollow ? '已关注' : '关注'}}</button>
 					</view>
 				</view>
 				<mp-html class="markdown_views" :content="addClassFormHtml(articleData.content)" scroll-table></mp-html>
 				<view class="comment-box">
 					<article-comment-list ref="mescrollItem" :articleId="articleId"></article-comment-list>
 				</view>
-				<article-operate></article-operate>
+				<article-operate @commentClick="onComment" :articleId="articleId" :isPraise="articleData.isPraise" :isCollect="articleData.isCollect" @changePraise="onChangePraise" @changeCollect="onChangeCollect"></article-operate>
+				<uni-popup ref="popup" type="bottom" @change="onCommitPopupChange">
+					<article-comment-commit v-if="isShowCommit" :articleId="articleId" @success="onSendSuccess"></article-comment-commit>
+				</uni-popup>
 			</block>
 		</view>
 	</page-meta>
@@ -32,12 +35,16 @@
 <script>
 	import { getArticleDetail } from '../../../api/article.js'
 	import MescrollCompMixin from '@/uni_modules/mescroll-uni/components/mescroll-uni/mixins/mescroll-comp.js'
+	import { mapActions } from 'vuex'
+	import { useFollow } from '../../../api/user.js'
 	export default {
 		data() {
 			return {
 				author: '',
 				articleId: '',
-				articleData: null
+				articleData: null,
+				isFollowLoading: false,
+				isShowCommit: false
 			};
 		},
 		mixins: [MescrollCompMixin],
@@ -46,6 +53,7 @@
 			this.articleId = options.articleId;
 		},
 		methods: {
+			...mapActions('user', ['isLogin']),
 			async loadArticleDetail() {
 				uni.showLoading({
 					title: '加载中',
@@ -61,6 +69,42 @@
 				return info.replace(/<(blockquote|p|h1|a|h2|h3|h4|h5|h6|ul|li|ol|td|th|tr|dl|dd|hr|pre|strong|input|table|details|code|kbd|summary|image|img)>/gi, function(matchStr, $1) {
 					return `<${$1} class="${$1}-cls">`;
 				});
+			},
+			async onFollowClick() {
+				const isLogin = await this.isLogin();
+				if (!isLogin) {
+					return;
+				}
+				this.isFollowLoading = true;
+				const res = await useFollow({
+					author: this.author,
+					isFollow: !this.articleData.isFollow
+				})
+				this.articleData.isFollow = !this.articleData.isFollow;
+				this.isFollowLoading = false;
+			},
+			onComment() {
+				this.$refs.popup.open();
+			},
+			onCommitPopupChange(e) {
+				if (e.show) {
+					this.isShowCommit = e.show;
+				} else {
+					setTimeout(() => {
+						this.isShowCommit = e.show;
+					}, 200);
+				}
+			},
+			onSendSuccess(data) {
+				this.$refs.popup.close();
+				this.isShowCommit = false;
+				this.$refs.mescrollItem.addCommentList(data);
+			},
+			onChangePraise(val) {
+				this.articleData.isPraise = val;
+			},
+			onChangeCollect(val) {
+				this.articleData.isCollect = val;
 			}
 		},
 		mounted() {

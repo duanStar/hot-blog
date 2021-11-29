@@ -1,4 +1,5 @@
 const BASE_URL = 'https://api.imooc-blog.lgdsunday.club/api';
+import store from '../store';
 
 function request({ path, data, method }) {
 	return new Promise((resolve, reject) => {
@@ -6,6 +7,9 @@ function request({ path, data, method }) {
 			url: BASE_URL + path,
 			method,
 			data,
+			header: {
+				Authorization: store.state.user.token
+			},
 			success({ data, statusCode, header }) {
 				if (data.success) {
 					resolve(data.data);

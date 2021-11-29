@@ -14,8 +14,7 @@
 		"style": {
 			"navigationBarTitleText": "我的"
 		}
-	}
-	],
+	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
@@ -26,47 +25,48 @@
 		}
 	},
 	"tabBar": {
-		"selectedColor":"#f94d2a",
-		"list": [
-			{
-				"pagePath":"pages/hot/hot",
-				"text":"热搜",
-				"iconPath":"static/tab-icons/hot.png",
-				"selectedIconPath":"static/tab-icons/hot-active.png"
+		"selectedColor": "#f94d2a",
+		"list": [{
+				"pagePath": "pages/hot/hot",
+				"text": "热搜",
+				"iconPath": "static/tab-icons/hot.png",
+				"selectedIconPath": "static/tab-icons/hot-active.png"
 			},
 			{
-				"pagePath":"pages/hot-video/hot-video",
-				"text":"热播",
-				"iconPath":"static/tab-icons/hot-video.png",
-				"selectedIconPath":"static/tab-icons/hot-video-active.png"
+				"pagePath": "pages/hot-video/hot-video",
+				"text": "热播",
+				"iconPath": "static/tab-icons/hot-video.png",
+				"selectedIconPath": "static/tab-icons/hot-video-active.png"
 			},
 			{
-				"pagePath":"pages/my/my",
-				"text":"我的",
-				"iconPath":"static/tab-icons/my.png",
-				"selectedIconPath":"static/tab-icons/my-active.png"
+				"pagePath": "pages/my/my",
+				"text": "我的",
+				"iconPath": "static/tab-icons/my.png",
+				"selectedIconPath": "static/tab-icons/my-active.png"
 			}
 		]
 	},
-	"subPackages": [
-		{
-			"root":"subpkg",
-			"name": "sub-1",
-			"pages": [
-				{
-					"path":"pages/search-blog/search-blog",
-					"style": {
-						"navigationBarTitleText":"文章搜索"
-					}
-				},
-			  {
-          "path" : "pages/blog-detail/blog-detail",
-          "style" :                                                                                    
-          {
-            "navigationBarTitleText": "文章详情"
-          }    
-        }
-      ]
-		}
-	]
+	"subPackages": [{
+		"root": "subpkg",
+		"name": "sub-1",
+		"pages": [{
+				"path": "pages/search-blog/search-blog",
+				"style": {
+					"navigationBarTitleText": "文章搜索"
+				}
+			},
+			{
+				"path": "pages/blog-detail/blog-detail",
+				"style": {
+					"navigationBarTitleText": "文章详情"
+				}
+			}, {
+				"path": "pages/login-page/login-page",
+				"style": {
+					"navigationBarTitleText": "登录",
+					"enablePullDownRefresh": false
+				}
+			}
+		]
+	}]
 }

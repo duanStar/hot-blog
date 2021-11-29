@@ -1,6 +1,6 @@
 <template>
 	<view class="operate-container">
-		<view class="comment-box">
+		<view class="comment-box" @click="onCommentClick">
 			<my-search :placeholderText="'评论一句,前排打call...'" :config="{
 				icon: '/static/images/input-icon.png',
 				height: 28,
@@ -10,21 +10,52 @@
 			}"></my-search>
 		</view>
 		<view class="options-box">
-			<article-praise></article-praise>
+			<article-praise :articleId="articleId" :isPraise="isPraise" @changePraise="onChangePraise"></article-praise>
 		</view>
 		<view class="options-box">
-			<article-collect></article-collect>
+			<article-collect :articleId="articleId" :isCollect="isCollect" @changeCollect="onChangeCollect"></article-collect>
 		</view>
 	</view>
 </template>
 
 <script>
+	import { mapActions } from 'vuex'
 	export default {
 		name:"article-operate",
+		props: {
+			articleId: {
+				type: String,
+				required: true
+			},
+			isPraise: {
+				type:Boolean,
+				required: true
+			},
+			isCollect: {
+				type:Boolean,
+				required: true
+			}
+		},
 		data() {
 			return {
 				
 			};
+		},
+		methods: {
+			...mapActions('user', ['isLogin']),
+			async onCommentClick() {
+				const isLogin = await this.isLogin();
+				if (!isLogin) {
+					return;
+				}
+				this.$emit('commentClick');
+			},
+			onChangePraise(val) {
+				this.$emit('changePraise', val);
+			},
+			onChangeCollect(val) {
+				this.$emit('changeCollect', val);
+			}
 		}
 	}
 </script>
