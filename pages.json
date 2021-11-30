@@ -66,6 +66,13 @@
 					"navigationBarTitleText": "登录",
 					"enablePullDownRefresh": false
 				}
+			}, {
+				"path": "pages/video-detail/video-detail",
+				"style": {
+					"navigationBarTitleText": "热播详情",
+					"enablePullDownRefresh": false
+				}
+
 			}
 		]
 	}]

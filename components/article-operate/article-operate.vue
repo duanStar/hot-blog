@@ -1,7 +1,7 @@
 <template>
 	<view class="operate-container">
 		<view class="comment-box" @click="onCommentClick">
-			<my-search :placeholderText="'评论一句,前排打call...'" :config="{
+			<my-search :placeholderText="placeholder" :config="{
 				icon: '/static/images/input-icon.png',
 				height: 28,
 				backgroundColor: '#eeedf4',
@@ -34,6 +34,10 @@
 			isCollect: {
 				type:Boolean,
 				required: true
+			},
+			placeholder: {
+			  type: String,
+			  default: '评论一句，前排打call...'
 			}
 		},
 		data() {
