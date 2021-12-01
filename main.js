@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import './styles/global.scss'
+import './styles/article-detail.scss'
 import store from './store/index.js'
 
 import * as filters from './filters/index.js'

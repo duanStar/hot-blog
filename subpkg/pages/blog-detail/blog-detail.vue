@@ -1,5 +1,7 @@
 <template>
+	<!-- #ifndef H5 -->
 	<page-meta root-font-size="52px">
+	<!-- #endif -->
 		<view class="detail-container">
 			<block v-if="articleData != null">
 				<view class="title">
@@ -29,7 +31,9 @@
 				</uni-popup>
 			</block>
 		</view>
-	</page-meta>
+		<!-- #ifndef H5 -->
+		</page-meta>
+		<!-- #endif -->
 </template>
 
 <script>
@@ -114,7 +118,6 @@
 </script>
 
 <style lang="scss">
-	@import '~@/styles/article-detail.scss';
 	.detail-container {
 		padding: $uni-spacing-col-base $uni-spacing-row-base;
 		padding-bottom: 88px;

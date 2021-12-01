@@ -1,6 +1,6 @@
 <template>
 	<view class="collect-box" @click="onCollectClick">
-		<image :src="isCollect ? '../../static/images/collect.png' : '../../static/images/un-collect.png'" class="img"></image>
+		<image :src="isCollect ? '/static/images/collect.png' : '/static/images/un-collect.png'" class="img"></image>
 		<text class="txt">收藏</text>
 	</view>
 </template>

@@ -52,8 +52,11 @@
         "appid" : "wxdc19ef6f4c27c99d",
         "setting" : {
             "urlCheck" : false,
-			"checkSiteMap": false
+            "checkSiteMap" : false
         },
         "usingComponents" : true
+    },
+    "h5" : {
+        "template" : "h5-template.html"
     }
 }

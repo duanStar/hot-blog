@@ -1,6 +1,6 @@
 <template>
 	<view class="praise-box" @click="onPraiseClick">
-		<image :src="isPraise ? '../../static/images/praise.png' : '../../static/images/un-praise.png'" class="img"></image>
+		<image :src="isPraise ? '/static/images/praise.png' : '/static/images/un-praise.png'" class="img"></image>
 		<text class="txt">点赞</text>
 	</view>
 </template>

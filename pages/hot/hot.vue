@@ -120,11 +120,22 @@
 			padding: 0 16px;
 			margin-bottom: $uni-spacing-sm;
 		}
+		// #ifndef H5
 		.tab-box {
 			position: sticky;
 			top: -1px;
 			z-index: 99;
 			padding-bottom: 5px;
 		}
+		// #endif
+		// #ifdef H5
+		.tab-box {
+			position: sticky;
+			top: 44px;
+			z-index: 99;
+			padding-bottom: 5px;
+		}
+		// #endif
+		
 	}
 </style>

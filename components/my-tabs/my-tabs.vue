@@ -163,17 +163,6 @@
 							&.tab-item-active {
 								color: $uni-text-color-hot;
 							}
-
-							// &.tab-item-active::after {
-							// 	content: '';
-							// 	position: absolute;
-							// 	width: 24px;
-							// 	height: 2px;
-							// 	background-color: $uni-text-color-hot;
-							// 	bottom: 0;
-							// 	left: 50%;
-							// 	transform: translateX(-50%);
-							// }
 						}
 					}
 					.underLine {
@@ -189,4 +178,12 @@
 			}
 		}
 	}
+	// #ifdef H5
+	/deep/.uni-scroll-view::-webkit-scrollbar {
+		display: none;
+	}
+	/deep/.uni-scroll-view {
+		scrollbar-width: none;
+	}
+	// #endif
 </style>
